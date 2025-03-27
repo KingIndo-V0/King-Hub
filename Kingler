@@ -1,0 +1,227 @@
+if.game.placeid == -- id robloxmu
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+
+local Window = Rayfield:CreateWindow({
+    Name = "King Hub | 🦈Fisch🦈 | v1 ",
+    Icon = 0,
+    LoadingTitle = "King Hub",
+    LoadingSubtitle = "by KingIndo",
+    Theme = "DarkBlue",
+ 
+    DisableRayfieldPrompts = false,
+    DisableBuildWarnings = false,
+ 
+    ConfigurationSaving = {
+       Enabled = true,
+       FolderName = nil,
+       FileName = "King Hub"
+    },
+ 
+    Discord = {
+       Enabled = false, 
+       Invite = "noinvitelink",
+       RememberJoins = true,
+    },
+ 
+    KeySystem = false, 
+    KeySettings = {
+       Title = "Untitled",
+       Subtitle = "Key System",
+       Note = "No method of obtaining the key is provided", 
+       FileName = "Key",
+       SaveKey = true,
+       GrabKeyFromSite = false,
+       Key = {"Hello"} 
+    }
+})
+
+local MainTab = Window:CreateTab("🗿Main", nil) -- Title, Image
+local MainSection = Tab:CreateSection("🗿Main🗿")
+
+Rayfield:Notify({
+   Title = "Injected Script Succesfully",
+   Content = "King Hub Present",
+   Duration = 5,
+   Image = nil,
+   Actions = {
+      Ignore = {
+         Name = "Lanjut Men!!!",
+         Callback = function()
+         Print ("The User Tapped Lanjut Men!!!")
+         end
+      },
+   },
+})
+
+local Toggle = MainTab:CreateToggle({
+   Name = "Auto Cast",
+   CurrentValue = false,
+   Flag = "Toggleexample", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+      _G.autoCast = true
+         function autoCast()
+            while _G.autoCast == true do
+               game.ReplicatedStorage.Tool.Rod.BackPack.Cast = (Value)
+               wait()
+            end,
+         end,
+   end,
+})
+
+local Toggle = MainTab:CreateToggle({
+   Name = "Auto Shake",
+   CurrentValue = false,
+   Flag = "Toggleexample", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+      _G.autoShake = true
+         function autoShake()
+            while _G.autoShake == true do
+               game.ReplicatedStorage.Tool.Ui.Press.Shake = (Value)
+               wait(0.1)
+            end,
+         end,
+   end,
+})
+
+local Toggle = MainTab:CreateToggle({
+   Name = "Auto Reel",
+   CurrentValue = false,
+   Flag = "Toggleexample", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+      _G.autoReel = true
+         function autoReel()
+            while _G.autoReel == true do
+               game.ReplicatedStorage.Tool.Rod.Control.Reel = (Value)
+               wait(0.1)
+            end,
+         end,
+   end,
+})
+
+local TeleportTab = Window:CreateTab("😎Teleport", nil) -- Title, Image
+local Section = TeleportTab:CreateSection("😎Teleport😎")
+
+local Dropdown = TeleportTab:CreateDropdown({
+   Name = "Tp Map",
+   Options = {"Moosewood","RoslitBay","SunstoneIsland","TerappinIsland","Altar","ForsakenShores","GrandReef","Atlantis","KrakenPool","Musgrove","Arch","Spike","AncientIsle","Crafting","Podium1","Podium2","Podium3","DesolateDeep","BrinePool","CalmZone","BossPool"}, -- Beta Version
+   CurrentOption = {"PlaceHolder"},
+   MultipleOptions = false,
+   Flag = "Dropdown1", 
+   Callback = function(Options)
+         print(Options)
+   end,
+})
+
+local Dropdown = TeleportTab:CreateDropdown({
+   Name = "Tp Totem",
+   Options = {"SundialTotem","AuroraTotem","SmockscreenTotem","TempestTotem","EclipseTotem",""}, -- Still Beta
+   CurrentOption = {"PlaceHolder"},
+   MultipleOptions = false,
+   Flag = "Dropdown1", 
+   Callback = function(Options)
+   print(Options)
+   end,
+})
+
+local Dropdown = TeleportTab:CreateDropdown({
+   Name = "Tp Rod",
+   Options = {"FlimsyRod","PlasticRod","CarbonRod","FastRod","LuckyRod","SteadyRod","RapidRod","FortuneRod","RodOfTheDepth","TridentRod","KingsRod","MythicalRod","ChampionsRod","TempestRod","AbyssalSpecterRod","ChalengersDeepRod","EtherealPrismRod"}, -- Beta Version
+   CurrentOption = {"None"},
+   MultipleOptions = false,
+   Flag = "Dropdown1", 
+   Callback = function(Options)
+      print(Options)
+   end,
+})
+
+
+local MiscTab = Window:CreateTab("Another", nil) -- Title, Image
+local Section = MiscTab:CreateSection("Another")
+
+local Input = MiscTab:CreateInput({
+   Name = "WalkSpeed",
+   CurrentValue = "16",
+   PlaceholderText = "1-200",
+   RemoveTextAfterFocusLost = true,
+   Flag = "Input1",
+   Callback = function(Text)
+      game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Text)
+   end,
+})
+
+local Input = MiscTab:CreateInput({
+   Name = "JumpPower",
+   CurrentValue = "50",
+   PlaceholderText = "1-200",
+   RemoveTextAfterFocusLost = true,
+   Flag = "Input1",
+   Callback = function(Text)
+      game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Text)
+   end,
+})
+
+local Toggle = MiscTab:CreateToggle({
+   Name = "Walk On Water",
+   CurrentValue = false,
+   Flag = "Toggleexample", 
+      game.Humanoid:SetStateEnabled("Swimming", false)
+      wait()
+     end
+   end,
+})
+
+local Toggle = MiscTab:CreateToggle({ --if Walk On Water No Function.
+   Name = "Fly", 
+   CurrentValue = false,
+   Flag = "Toggleexample", 
+   Callback = function(Value)
+      local uis = game:GetService("UserInputService")
+   local rs = game:GetService("RunService")
+
+   local myPlayer = game.Players.LocalPlayer
+   local myChar = myPlayer.Character
+   local myHRP = myChar:WaitForChild("HumanoidRootPart")
+   local camera = game.Workspace.CurrentCamera
+
+   local flying = false
+   local speed = 0.5
+
+
+   local bp = Instance.new("BodyPosition", myHRP)
+   bp.MaxForce = Vector3.new()
+   bp.D = 10
+   bp.P = 10000
+
+   local bg = Instance.new("BodyGyro", myHRP)
+   bg.MaxTorque = Vector3.new()
+   bg.D = 10
+
+   function fly()
+	   flying = true
+	   bp.MaxForce = Vector3.new(400000,400000,400000)
+	   bg.MaxTorque = Vector3.new(400000,400000,400000)
+	   while flying do
+		   rs.RenderStepped:wait()
+		   bp.Position = myHRP.Position +((myHRP.Position - camera.CFrame.p).unit * speed)
+		   bg.CFrame = CFrame.new(camera.CFrame.p, myHRP.Position)
+	   end
+   end
+
+
+   function endFlying()
+	   bp.MaxForce = Vector3.new()
+	   bg.MaxTorque = Vector3.new()
+	   flying = false
+   end
+
+   uis.InputBegan:connect(function(input)
+	   if input.KeyCode == Enum.KeyCode.Space then
+		   if not flying then
+			   fly()
+		   else
+			   endFlying()
+		   end
+	   end
+   end)
+})
