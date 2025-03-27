@@ -1,1 +1,1 @@
-loadstring(game:HttpGet('githubusercontent.com/KingIndo-V0/King-Hub/refs/heads/main/Kingler'))
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KingIndo-V0/King-Hub/refs/heads/main/Kingler"))()
