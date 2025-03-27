@@ -1,2 +1,1 @@
-if.game.placeid == -- id robloxmu
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+loadstring(game:HttpGet('githubusercontent.com/KingIndo-V0/King-Hub/refs/heads/main/Kingler'))
